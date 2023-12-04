@@ -28,4 +28,11 @@ public class Exception {
         }
         throw new IllegalArgumentException(ERROR + "U(위 칸)와 D(아래 칸) 중 하나의 문자를 입력하여야 합니다.");
     }
+
+    public static void checkRetryChoice(String input) {
+        if (input.equals("R") || input.equals("Q")) {
+            return;
+        }
+        throw new IllegalArgumentException(ERROR + "R(재시도)와 Q(종료) 중 하나의 문자를 입력하여야 합니다.");
+    }
 }
