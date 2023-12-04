@@ -24,4 +24,19 @@ public class InputView {
             }
         }
     }
+
+    /**
+     * 사용자가 이동할 칸을 입력받는다.
+     */
+    public static String readMoving() {
+        String choice = " ";
+        try {
+            choice = readLine();
+            Exception.checkMoveChoice(choice);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            readMoving();
+        }
+        return choice;
+    }
 }
