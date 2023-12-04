@@ -21,4 +21,11 @@ public class Exception {
         }
         return input;
     }
+
+    public static void checkMoveChoice(String input) {
+        if (input.equals("U") || input.equals("D")) {
+            return;
+        }
+        throw new IllegalArgumentException(ERROR + "U(위 칸)와 D(아래 칸) 중 하나의 문자를 입력하여야 합니다.");
+    }
 }
