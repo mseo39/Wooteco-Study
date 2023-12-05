@@ -32,4 +32,22 @@ public class BridgeController {
         }
         user.getMoveChoiceResult().add("X");
     }
+
+    public void requestLogic(){
+        while(requestMoveChoiceLogic()) {
+            bridgeGame.retry(user);
+        }
+    }
+
+    public boolean requestMoveChoiceLogic(){
+        for (int num = 0; num < bridgeGame.getBridgeList().size(); num++) {
+            requestMoveChoice(num);
+            OutputView.printMap(user, bridgeGame);
+            if (user.getMoveChoiceResult().get(user.getMoveChoiceResult().size() - 1).equals("X")) {
+                return requestRetryChoice();
+            }
+        }
+        user.setTryGameResult("성공");
+        return false;
+    }
 }
