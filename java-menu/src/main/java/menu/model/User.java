@@ -42,4 +42,10 @@ public class User {
             throw new IllegalArgumentException(Exception.ERROR_NAME_SIZE.getPhrase());
         }
     }
+
+    public void validateAvoidMenu(List<String> menus){
+        if(menus.size()>2){
+            throw new IllegalArgumentException(Exception.ERROR_MENU_SIZE.getPhrase());
+        }
+    }
 }
