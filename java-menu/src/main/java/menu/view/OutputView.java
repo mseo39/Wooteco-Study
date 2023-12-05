@@ -16,4 +16,14 @@ public class OutputView {
     static public void printServiceStart() {
         System.out.println(Output.SERVICE_START.getPhrase());
     }
+
+    static public void printResult(List<String> categories, List<User> users){
+        System.out.println(Output.RECOMMEND_RESULT.getPhrase());
+        System.out.println("["+" 구분 | "+String.join(" | ", days)+" ]");
+        System.out.println("["+" 카테고리 | "+String.join(" | ", categories)+" ]");
+        for (User user: users){
+            System.out.println("[ "+user.getName()+" | "+String.join(" | ", user.getAlreadyRecommendMenu())+" ]");
+        }
+        System.out.println(Output.PROGRAM_END.getPhrase());
+    }
 }
