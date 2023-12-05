@@ -23,4 +23,13 @@ public class BridgeController {
     public static void requestMakeBridge(int size) {
         bridgeGame.setBridgeList(bridgeMaker.makeBridge(size));
     }
+
+    public void requestMoveChoice(int num){
+        OutputView.printMoveChoice();
+        if(bridgeGame.move(InputView.readMoving(), num)){
+            user.getMoveChoiceResult().add("O");
+            return;
+        }
+        user.getMoveChoiceResult().add("X");
+    }
 }
