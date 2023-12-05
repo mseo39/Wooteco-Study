@@ -74,4 +74,8 @@ public enum Menu {
     public Category getCategory() {
         return category;
     }
+
+    public static List<String> getMenus(Category category) {
+        return Arrays.stream(Menu.values()).filter(menu -> menu.getCategory() == category).map(Menu::getName).collect(Collectors.toList());
+    }
 }
