@@ -1,5 +1,6 @@
 package menu.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import menu.phrase.Exception;
 
 import java.util.ArrayList;
@@ -42,5 +43,9 @@ public class Recommend {
             return false;
         }
         return true;
+    }
+
+    public int recommendCategory(){
+        return Randoms.pickNumberInRange(1, 5);
     }
 }
