@@ -42,4 +42,20 @@ public class MenuController {
             requestInputAvoidMenu(user);
         }
     }
+
+    public void requestCategory(Recommend recommend) {
+        for(int i=0; i<5;i++){
+            addCategory(recommend);
+        }
+    }
+
+    public void addCategory(Recommend recommend) {
+        boolean repeat = true;
+        int num = 0;
+        while (repeat) {
+            num = recommend.recommendCategory();
+            repeat = !recommend.validCategories(num);
+        }
+        recommend.addCategories(num);
+    }
 }
