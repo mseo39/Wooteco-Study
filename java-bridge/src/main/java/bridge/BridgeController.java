@@ -11,6 +11,14 @@ public class BridgeController {
         bridgeMaker = new BridgeMaker(new BridgeRandomNumberGenerator());
     }
 
+    public void gameStart() {
+        OutputView.printStart();
+        OutputView.printSize();
+        requestMakeBridge(InputView.readBridgeSize());
+        System.out.println(bridgeGame.getBridgeList());
+        requestLogic();
+        requestEnd();
+    }
 
     public boolean requestRetryChoice(){
         OutputView.printRetryChoice();
