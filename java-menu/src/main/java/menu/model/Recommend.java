@@ -6,6 +6,7 @@ import menu.phrase.Exception;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
+import java.util.stream.Collectors;
 
 public class Recommend {
     private List<User> users;
@@ -58,5 +59,9 @@ public class Recommend {
             return false;
         }
         return true;
+    }
+
+    public List<String> getCategoriesName() {
+        return categories.stream().map(Category::getName).collect(Collectors.toList());
     }
 }
