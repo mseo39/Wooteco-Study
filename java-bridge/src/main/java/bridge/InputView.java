@@ -30,14 +30,15 @@ public class InputView {
      */
     public static String readMoving() {
         String choice = " ";
-        try {
-            choice = readLine();
-            Exception.checkMoveChoice(choice);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            readMoving();
+        while (true) {
+            try {
+                choice = readLine();
+                Exception.checkMoveChoice(choice);
+                return choice;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
         }
-        return choice;
     }
 
     /**
@@ -45,13 +46,14 @@ public class InputView {
      */
     public static String readGameCommand() {
         String choice = " ";
-        try {
-            choice = readLine();
-            Exception.checkRetryChoice(choice);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            readGameCommand();
+        while (true) {
+            try {
+                choice = readLine();
+                Exception.checkRetryChoice(choice);
+                return choice;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
         }
-        return choice;
     }
 }
