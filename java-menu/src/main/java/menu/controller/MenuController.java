@@ -22,4 +22,24 @@ public class MenuController {
             }
         }
     }
+
+    public void requestInputAvoidMenu(User user) {
+        while (true) {
+            try {
+                List<String> avoidMenu = InputView.readAvoidMenu(user.getName());
+                Menu.validateMenu(avoidMenu);
+                user.validateAvoidMenu(avoidMenu);
+                user.setAvoidMenu(avoidMenu);
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    public void requestAvoidMenu(Recommend recommend) {
+        for (User user : recommend.getUsers()) {
+            requestInputAvoidMenu(user);
+        }
+    }
 }
