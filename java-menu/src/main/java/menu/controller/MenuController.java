@@ -76,4 +76,8 @@ public class MenuController {
             }
         }
     }
+
+    public void requestResult(){
+        OutputView.printResult(recommend.getCategoriesName(), recommend.getUsers());
+    }
 }
