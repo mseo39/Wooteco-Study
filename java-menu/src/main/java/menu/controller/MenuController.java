@@ -58,4 +58,22 @@ public class MenuController {
         }
         recommend.addCategories(num);
     }
+
+    public void recommendMenu(Recommend recommend, Category category, User user) {
+        boolean repeat = true;
+        String menu = "";
+        while (repeat) {
+            menu = recommend.recommendMenu(Menu.getMenus(category));
+            repeat = !recommend.validMenu(menu, user);
+        }
+        user.addAlreadyRecommendMenu(menu);
+    }
+
+    public void requestRecommendMenu(Recommend recommend) {
+        for (Category category : recommend.getCategories()) {
+            for (User user : recommend.getUsers()) {
+                recommendMenu(recommend, category, user);
+            }
+        }
+    }
 }
