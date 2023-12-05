@@ -48,4 +48,8 @@ public class Recommend {
     public int recommendCategory(){
         return Randoms.pickNumberInRange(1, 5);
     }
+
+    public String recommendMenu(List<String> menus){
+        return Randoms.shuffle(menus).get(0);
+    }
 }
