@@ -1,5 +1,7 @@
 package menu.model;
 
+import menu.phrase.Exception;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +11,7 @@ public class User {
     private List<String> alreadyRecommendMenu;
 
     public User(String name) {
+        validate(name);
         this.name = name;
         this.alreadyRecommendMenu = new ArrayList<>();
         this.avoidMenu = new ArrayList<>();
@@ -32,5 +35,11 @@ public class User {
 
     public String getName() {
         return name;
+    }
+
+    public void validate(String name){
+        if(name.length()<2 || name.length()>4){
+            throw new IllegalArgumentException(Exception.ERROR_NAME_SIZE.getPhrase());
+        }
     }
 }
