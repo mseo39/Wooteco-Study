@@ -50,4 +50,8 @@ public class BridgeController {
         user.setTryGameResult("성공");
         return false;
     }
+
+    public void requestEnd(){
+        OutputView.printResult(user, bridgeGame);
+    }
 }
