@@ -4,6 +4,7 @@ import menu.phrase.Exception;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
 
 public class Recommend {
     private List<User> users;
@@ -36,5 +37,10 @@ public class Recommend {
         this.categories.add(Category.getCategory(num));
     }
 
-
+    public boolean validCategories(int num){
+        if(Collections.frequency(this.categories, Category.getCategory(num))>=2){
+            return false;
+        }
+        return true;
+    }
 }
