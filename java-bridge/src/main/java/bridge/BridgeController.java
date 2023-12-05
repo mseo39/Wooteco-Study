@@ -10,4 +10,14 @@ public class BridgeController {
         bridgeGame = new BridgeGame();
         bridgeMaker = new BridgeMaker(new BridgeRandomNumberGenerator());
     }
+
+
+    public boolean requestRetryChoice(){
+        OutputView.printRetryChoice();
+        if(InputView.readGameCommand().equals("R")){
+            return true;
+        }
+        return false;
+    }
+
 }
