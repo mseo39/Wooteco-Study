@@ -31,4 +31,10 @@ public class Recommend {
             throw new IllegalArgumentException(Exception.ERROR_COACH_NUM.getPhrase());
         }
     }
+
+    public void addCategories(int num) {
+        this.categories.add(Category.getCategory(num));
+    }
+
+
 }
