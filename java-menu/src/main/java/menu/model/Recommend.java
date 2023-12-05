@@ -52,4 +52,11 @@ public class Recommend {
     public String recommendMenu(List<String> menus){
         return Randoms.shuffle(menus).get(0);
     }
+
+    public boolean validMenu(String menu, User user){
+        if(user.getAlreadyRecommendMenu().contains(menu) || user.getAvoidEatingMenu().contains(menu)){
+            return false;
+        }
+        return true;
+    }
 }
