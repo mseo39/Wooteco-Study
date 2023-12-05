@@ -20,4 +20,7 @@ public class BridgeController {
         return false;
     }
 
+    public static void requestMakeBridge(int size) {
+        bridgeGame.setBridgeList(bridgeMaker.makeBridge(size));
+    }
 }
