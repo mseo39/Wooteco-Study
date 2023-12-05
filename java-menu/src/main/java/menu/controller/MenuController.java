@@ -12,6 +12,15 @@ import java.util.List;
 public class MenuController {
     private Recommend recommend;
 
+    public void gameStart() {
+        OutputView.printServiceStart();
+        requestCoachName();
+        requestAvoidMenu(recommend);
+        requestCategory(recommend);
+        requestRecommendMenu(recommend);
+        requestResult();
+    }
+
     public void requestCoachName() {
         while (true) {
             try {
