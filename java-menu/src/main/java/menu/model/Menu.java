@@ -78,4 +78,16 @@ public enum Menu {
     public static List<String> getMenus(Category category) {
         return Arrays.stream(Menu.values()).filter(menu -> menu.getCategory() == category).map(Menu::getName).collect(Collectors.toList());
     }
+
+    public static void validateMenu(List<String> menus) {
+        if (!getMenuName().containsAll(menus)) {
+            throw new IllegalArgumentException(Exception.ERROR_MENU_NAME.getPhrase());
+        }
+    }
+
+    public static List<String> getMenuName() {
+        return Arrays.stream(Menu.values())
+                .map(Menu::getName)
+                .collect(Collectors.toList());
+    }
 }
