@@ -6,6 +6,7 @@ public enum Coin {
     COIN_50(50),
     COIN_10(10);
 
+    //private 변경 불가
     private final int amount;
 
     Coin(final int amount) {
