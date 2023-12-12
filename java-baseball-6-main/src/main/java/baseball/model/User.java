@@ -17,4 +17,8 @@ public class User {
     public List<List<Integer>> getInputBaseball() {
         return inputBaseball;
     }
+
+    public List<Integer> getLastInput(){
+        return this.inputBaseball.get(this.inputBaseball.size()-1);
+    }
 }
