@@ -2,7 +2,6 @@ package baseball.view;
 
 public enum OutputPhrase {
     START("숫자 야구 게임을 시작합니다."),
-    BASEBALL_SIZE("정답의 길이를 설정하세요. (예시: 123 -> 길이 3)"),
     BALL("볼"),
     STRIKE("스트라이크"),
     NOTHING("낫싱"),
@@ -11,8 +10,6 @@ public enum OutputPhrase {
     THROW_NUM("던진 횟수"),
     GAME_CONTENT("게임 내용"),
     SEPARATE("<%s>");
-
-
 
     private String phrase;
 
