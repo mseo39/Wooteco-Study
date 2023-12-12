@@ -47,4 +47,16 @@ public class PairMatching {
         }
         return level;
     }
+
+    public List<List<String>> randomMatching(Crew crew){
+        this.matching.clear();
+        List<String> names = crew.getCrewNames();
+        for(int i=0; i< names.size(); i+=2){
+            this.matching.add(new ArrayList<>(List.of(names.get(i), names.get(i+1))));
+        }
+        if(names.size()%2!=0){
+            this.matching.get(this.matching.size()-1).add(names.get(names.size()-1));
+        }
+        return this.matching;
+    }
 }
