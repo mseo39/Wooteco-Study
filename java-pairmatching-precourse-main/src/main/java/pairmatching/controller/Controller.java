@@ -72,11 +72,11 @@ public class Controller {
         }
     }
 
-    public void requestExist(List<String> type){
-        for(PairMatching pairMatching: this.pairMatchings){
-            if(pairMatching.getName().equals(type.get(2)) &&
+    public void requestExist(List<String> type) {
+        for (PairMatching pairMatching : this.pairMatchings) {
+            if (pairMatching.getName().equals(type.get(2)) &&
                     pairMatching.getCourse().equals(Course.getCourse(type.get(0))) &&
-                    pairMatching.getLevel().equals(Level.getLevel(type.get(1)))){
+                    pairMatching.getLevel().equals(Level.getLevel(type.get(1)))) {
                 OutputView.printMatchingResult(pairMatching);
             }
         }
@@ -100,10 +100,6 @@ public class Controller {
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
-    }
-
-    public void requestReadType(){
-
     }
 
     public void requestRandomMatching(PairMatching pairMatching) {
