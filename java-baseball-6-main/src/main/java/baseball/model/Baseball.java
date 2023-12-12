@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.List;
 
-public class Computer {
+public class Baseball {
     private List<Integer> baseballNum;
     private int size;
 
