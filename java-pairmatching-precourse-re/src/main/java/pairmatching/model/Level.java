@@ -27,4 +27,11 @@ public enum Level {
             throw new IllegalArgumentException(ErrorPhrase.EXIST_LEVEL.getPhrase());
         }
     }
+
+    public static String validateMission(Level level, String mission){
+        if(!level.mission.contains(mission)){
+            throw new IllegalArgumentException(ErrorPhrase.EXIST_MISSION.getPhrase());
+        }
+        return mission;
+    }
 }
