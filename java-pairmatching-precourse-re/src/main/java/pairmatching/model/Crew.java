@@ -1,5 +1,7 @@
 package pairmatching.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -19,5 +21,9 @@ public class Crew {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public List<String> getNames() {
+        return Randoms.shuffle(this.names);
     }
 }
