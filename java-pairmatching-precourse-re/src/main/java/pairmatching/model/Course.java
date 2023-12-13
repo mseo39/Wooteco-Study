@@ -15,4 +15,12 @@ public enum Course {
     public String getName() {
         return name;
     }
+
+    public static Course validateCourse(String name) {
+        try {
+            return Course.valueOf(name);
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(ErrorPhrase.EXIST_COURSE.getPhrase());
+        }
+    }
 }
