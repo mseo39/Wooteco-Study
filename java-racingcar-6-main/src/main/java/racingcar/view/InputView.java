@@ -14,4 +14,9 @@ public class InputView {
         System.out.println(InputPhrase.CAR_NAME.getPhrase());
         return Arrays.stream(readLine().split(SEPARATE)).toList();
     }
+
+    public static int readTryNum(){
+        System.out.println(InputPhrase.TRY_NUM.getPhrase());
+        return Util.stringToInteger(readLine());
+    }
 }
