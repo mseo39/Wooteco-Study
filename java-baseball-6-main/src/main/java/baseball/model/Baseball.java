@@ -30,6 +30,10 @@ public class Baseball {
         return size;
     }
 
+    public void initBaseballNum(){
+        this.baseballNum.clear();
+    }
+
     public void randomBaseballNum(){
         while (baseballNum.size() < size) {
             int randomNumber = Randoms.pickNumberInRange(1, 9);
@@ -37,7 +41,6 @@ public class Baseball {
                 baseballNum.add(randomNumber);
             }
         }
-        System.out.println(baseballNum);
     }
 
     public boolean checkNothing(List<Integer> input){

@@ -21,4 +21,8 @@ public class User {
     public List<Integer> getLastInput(){
         return this.inputBaseball.get(this.inputBaseball.size()-1);
     }
+
+    public void initInputBaseball(){
+        this.inputBaseball.clear();
+    }
 }

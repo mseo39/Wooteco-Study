@@ -19,15 +19,22 @@ public class Controller {
     public void startProgram() {
         boolean repeat=true;
         requestStart();
+        requestRandomComputer();
         while(repeat) {
-            requestRandomComputer();
             requestInputUser();
             requestInputCheck();
             if(this.baseball.checkStrike(user.getLastInput())==this.baseball.getSize()){
                 requestGameContent();
                 repeat = requestRestart();
+                requestInit();
+                requestRandomComputer();
             }
         }
+    }
+
+    public void requestInit(){
+        this.baseball.initBaseballNum();
+        this.user.initInputBaseball();
     }
 
     public void requestRandomComputer(){
