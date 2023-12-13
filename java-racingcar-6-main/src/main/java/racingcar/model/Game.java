@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Game {
@@ -26,5 +27,13 @@ public class Game {
 
     public void addCar(Car car) {
         this.Cars.add(car);
+    }
+
+    public int maxDistance(){
+        return Collections.max(this.Cars.stream().map(Car::getDistance).toList());
+    }
+
+    public List<Car> getWinner(){
+        return this.Cars.stream().filter(car -> car.getDistance()==maxDistance()).toList();
     }
 }
