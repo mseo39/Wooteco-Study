@@ -16,6 +16,10 @@ public class Game {
         this.tryNum = tryNum;
     }
 
+    public int getTryNum() {
+        return tryNum;
+    }
+
     public List<Car> getCars() {
         return Cars;
     }
