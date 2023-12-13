@@ -20,6 +20,14 @@ public enum Level {
         this.mission = mission;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public List<String> getMission() {
+        return mission;
+    }
+
     public static Level validateLevel(String level){
         try{
             return Level.valueOf(level);
