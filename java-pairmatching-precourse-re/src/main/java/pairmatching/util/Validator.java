@@ -14,4 +14,11 @@ public class Validator {
         }
         return input;
     }
+
+    public static String validateReMatching(String input){
+        if(!reMatchingChoise.contains(input)){
+            throw new IllegalArgumentException(ErrorPhrase.CHOICE_REMATCHING.getPhrase());
+        }
+        return input;
+    }
 }
