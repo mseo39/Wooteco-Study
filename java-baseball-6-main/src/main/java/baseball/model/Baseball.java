@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Baseball {
     private List<Integer> baseballNum;
-    private int size;
+    private int size=3;
     private int minSize=2;
 
     public Baseball(){
