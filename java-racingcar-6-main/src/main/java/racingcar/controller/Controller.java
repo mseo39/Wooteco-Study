@@ -14,6 +14,9 @@ public class Controller {
     public void gameStart(){
         requestCarName();
         requestTryNum();
+        for(int i=0; i< game.getTryNum();i++) {
+            requestMoveCar();
+        }
     }
 
     public void requestCarName(){
@@ -24,5 +27,9 @@ public class Controller {
 
     public void requestTryNum(){
         game.setTryNum(InputView.readTryNum());
+    }
+
+    public void requestMoveCar(){
+        game.getCars().stream().forEach(Car::moveCar);
     }
 }
