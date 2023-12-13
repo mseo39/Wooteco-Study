@@ -3,6 +3,7 @@ package pairmatching.controller;
 import pairmatching.model.Course;
 import pairmatching.model.Crew;
 import pairmatching.view.InputView;
+import pairmatching.view.OutputView;
 
 import java.nio.file.Paths;
 
@@ -19,11 +20,10 @@ public class Controller {
         requestReadFunction();
     }
 
-    public void requestReadFunction(){
+    public String requestReadFunction(){
         while (true) {
             try {
-                InputView.readFunction();
-                break;
+                return InputView.readFunction();
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
