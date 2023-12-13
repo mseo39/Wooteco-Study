@@ -3,7 +3,6 @@ package racingcar.controller;
 import racingcar.model.Car;
 import racingcar.model.Game;
 import racingcar.view.InputView;
-import racingcar.view.OutputPhrase;
 import racingcar.view.OutputView;
 
 public class Controller {
@@ -21,6 +20,7 @@ public class Controller {
             requestMoveCar();
             requestPrintResult();
         }
+        requestWinner();
     }
 
     public void requestCarName(){
@@ -39,5 +39,9 @@ public class Controller {
 
     public void requestPrintResult(){
         OutputView.printResult(game.getCars());
+    }
+
+    public void requestWinner(){
+        OutputView.printWinner(game.getWinner());
     }
 }

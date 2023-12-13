@@ -3,7 +3,9 @@ package racingcar.view;
 public enum OutputPhrase {
     RESULT("실행 결과"),
     SEPARATOR(" : "),
-    DISTANCE("-");
+    DISTANCE("-"),
+    WINNER("최종 우승자"),
+    SEPARATE(",");
 
     private String phrase;
 
