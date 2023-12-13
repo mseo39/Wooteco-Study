@@ -13,11 +13,16 @@ public class Controller {
 
     public void gameStart(){
         requestCarName();
+        requestTryNum();
     }
 
     public void requestCarName(){
         for(String name : InputView.readCarName()){
             game.addCar(new Car(name));
         }
+    }
+
+    public void requestTryNum(){
+        game.setTryNum(InputView.readTryNum());
     }
 }
