@@ -37,5 +37,33 @@ public class Baseball {
                 baseballNum.add(randomNumber);
             }
         }
+        System.out.println(baseballNum);
+    }
+
+    public boolean checkNothing(List<Integer> input){
+        if(!this.baseballNum.stream().anyMatch(integer -> input.contains(integer))){
+            return true;
+        }
+        return false;
+    }
+
+    public int checkStrike(List<Integer> input){
+        int check = 0;
+        for(int i=0; i<input.size();i++){
+            if(this.baseballNum.contains(input.get(i)) && this.baseballNum.indexOf(input.get(i)) == i){
+                check++;
+            }
+        }
+        return check;
+    }
+
+    public int checkBall(List<Integer> input){
+        int check = 0;
+        for(int i=0; i<input.size();i++){
+            if(this.baseballNum.contains(input.get(i)) && this.baseballNum.indexOf(input.get(i)) != i){
+                check++;
+            }
+        }
+        return check;
     }
 }
