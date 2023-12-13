@@ -22,9 +22,15 @@ public class Controller {
             requestInputUser();
             requestInputCheck();
             if(this.baseball.checkStrike(user.getLastInput())==this.baseball.getSize()){
+                requestGameContent();
                 break;
             }
         }
+    }
+
+    public void requestGameContent(){
+        OutputView.printThreeStrike();
+        OutputView.printGameResult(this.baseball.getBaseballNum(), this.user.getInputBaseball());
     }
 
     public void requestInputCheck(){
