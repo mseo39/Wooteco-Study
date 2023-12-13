@@ -17,15 +17,23 @@ public class Controller {
     }
 
     public void startProgram() {
+        boolean repeat=true;
         requestStart();
-        while(true) {
+        while(repeat) {
             requestInputUser();
             requestInputCheck();
             if(this.baseball.checkStrike(user.getLastInput())==this.baseball.getSize()){
                 requestGameContent();
-                break;
+                repeat = requestRestart();
             }
         }
+    }
+
+    public boolean requestRestart(){
+        if(InputView.readRestart()==1){
+            return true;
+        }
+        return false;
     }
 
     public void requestGameContent(){

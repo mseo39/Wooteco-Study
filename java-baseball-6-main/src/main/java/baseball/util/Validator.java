@@ -2,7 +2,6 @@ package baseball.util;
 
 import baseball.view.ErrorPhrase;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -20,5 +19,12 @@ public class Validator {
             throw new IllegalArgumentException(ErrorPhrase.INPUT_DUPLICATE.getPhrase());
         }
         return Stream.of(input.split("")).map(Integer::parseInt).collect(Collectors.toList());
+    }
+
+    public static int restartChoice(int input){
+        if(input!=1 && input!=2){
+            throw new IllegalArgumentException(ErrorPhrase.RESTART_CHOICE.getPhrase());
+        }
+        return input;
     }
 }

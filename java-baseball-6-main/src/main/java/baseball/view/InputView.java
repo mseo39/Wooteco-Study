@@ -17,4 +17,9 @@ public class InputView {
         System.out.print(InputPhrase.BASEBALL_INPUT.getPhrase());
         return Validator.inputDuplicate(readLine());
     }
+
+    public static int readRestart(){
+        System.out.println(InputPhrase.RESTART_CHOICE.getPhrase());
+        return Validator.restartChoice(Util.stringToInteger(readLine()));
+    }
 }
