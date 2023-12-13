@@ -20,6 +20,7 @@ public class Controller {
         boolean repeat=true;
         requestStart();
         while(repeat) {
+            requestRandomComputer();
             requestInputUser();
             requestInputCheck();
             if(this.baseball.checkStrike(user.getLastInput())==this.baseball.getSize()){
@@ -27,6 +28,10 @@ public class Controller {
                 repeat = requestRestart();
             }
         }
+    }
+
+    public void requestRandomComputer(){
+        this.baseball.randomBaseballNum();
     }
 
     public boolean requestRestart(){
@@ -76,7 +81,6 @@ public class Controller {
     public void requestStart(){
         OutputView.printStart();
         requestReadBaseballSize();
-        this.baseball.randomBaseballNum();
     }
 
     public void requestReadBaseballSize(){
