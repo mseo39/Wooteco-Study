@@ -5,6 +5,9 @@ import baseball.model.User;
 import baseball.view.InputView;
 import baseball.view.OutputView;
 
+import java.util.Collections;
+import java.util.stream.Collectors;
+
 public class Controller {
     Baseball baseball;
     User user;
@@ -15,7 +18,34 @@ public class Controller {
 
     public void startProgram() {
         requestStart();
-        requestInputUser();
+        while(true) {
+            requestInputUser();
+            requestInputCheck();
+            if(this.baseball.checkStrike(user.getLastInput())==this.baseball.getSize()){
+                break;
+            }
+        }
+    }
+
+    public void requestInputCheck(){
+        boolean nothing = this.baseball.checkNothing(user.getLastInput());
+
+        int strike=0;
+        if(!nothing){
+            strike = this.baseball.checkStrike(user.getLastInput());
+        }
+        int ball=0;
+        if(!nothing && strike<checkMatchNum()){
+            ball = this.baseball.checkBall(user.getLastInput());
+        }
+        OutputView.printCheckResult(nothing,ball,strike);
+    }
+
+    public int checkMatchNum(){
+        return this.baseball.getBaseballNum().stream().
+                map(integer ->  Collections.frequency(user.getLastInput(),integer)).
+                collect(Collectors.toList()).stream().
+                mapToInt(Integer::intValue).sum();
     }
 
     public void requestInputUser(){
