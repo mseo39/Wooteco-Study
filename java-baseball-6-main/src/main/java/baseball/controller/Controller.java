@@ -26,8 +26,6 @@ public class Controller {
             if(this.baseball.checkStrike(user.getLastInput())==this.baseball.getSize()){
                 requestGameContent();
                 repeat = requestRestart();
-                requestInit();
-                requestRandomComputer();
             }
         }
     }
@@ -43,6 +41,8 @@ public class Controller {
 
     public boolean requestRestart(){
         if(InputView.readRestart()==1){
+            requestInit();
+            requestRandomComputer();
             return true;
         }
         return false;
@@ -77,12 +77,13 @@ public class Controller {
     public void requestInputUser(){
         while (true) {
             try {
-                user.addInputBaseball(InputView.readUserBaseball());
+                user.addInputBaseball(InputView.readUserBaseball(this.baseball.getSize()));
                 break;
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
         }
+        user.addInputBaseball(InputView.readUserBaseball(this.baseball.getSize()));
     }
 
     public void requestStart(){
