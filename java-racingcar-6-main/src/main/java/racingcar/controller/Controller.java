@@ -3,6 +3,8 @@ package racingcar.controller;
 import racingcar.model.Car;
 import racingcar.model.Game;
 import racingcar.view.InputView;
+import racingcar.view.OutputPhrase;
+import racingcar.view.OutputView;
 
 public class Controller {
     Game game;
@@ -14,8 +16,10 @@ public class Controller {
     public void gameStart(){
         requestCarName();
         requestTryNum();
+        OutputView.printResultPhrase();
         for(int i=0; i< game.getTryNum();i++) {
             requestMoveCar();
+            requestPrintResult();
         }
     }
 
@@ -31,5 +35,9 @@ public class Controller {
 
     public void requestMoveCar(){
         game.getCars().stream().forEach(Car::moveCar);
+    }
+
+    public void requestPrintResult(){
+        OutputView.printResult(game.getCars());
     }
 }
