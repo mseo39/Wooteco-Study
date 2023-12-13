@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.view.ErrorPhrase;
 
 public class Car {
@@ -23,9 +24,15 @@ public class Car {
         return distance;
     }
 
-    public void validate(String name){
-        if(name.length() > SIZE){
-            throw new IllegalArgumentException(String.format(ErrorPhrase.CAR_NAME_SIZE.getPhrase(),SIZE));
+    public void validate(String name) {
+        if (name.length() > SIZE) {
+            throw new IllegalArgumentException(String.format(ErrorPhrase.CAR_NAME_SIZE.getPhrase(), SIZE));
+        }
+    }
+
+    public void moveCar() {
+        if (Randoms.pickNumberInRange(0, 9) > CONDITION) {
+            this.distance = +1;
         }
     }
 }
