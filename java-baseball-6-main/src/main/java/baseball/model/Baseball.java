@@ -7,10 +7,10 @@ import java.util.List;
 
 public class Baseball {
     private List<Integer> baseballNum;
-    private int size=3;
-    private int minSize=2;
+    private int size;
+    private int minSize = 2;
 
-    public Baseball(){
+    public Baseball() {
         baseballNum = new ArrayList<>();
     }
 
@@ -30,11 +30,11 @@ public class Baseball {
         return size;
     }
 
-    public void initBaseballNum(){
+    public void initBaseballNum() {
         this.baseballNum.clear();
     }
 
-    public void randomBaseballNum(){
+    public void randomBaseballNum() {
         while (baseballNum.size() < size) {
             int randomNumber = Randoms.pickNumberInRange(1, 9);
             if (!baseballNum.contains(randomNumber)) {
@@ -43,27 +43,27 @@ public class Baseball {
         }
     }
 
-    public boolean checkNothing(List<Integer> input){
-        if(!this.baseballNum.stream().anyMatch(integer -> input.contains(integer))){
+    public boolean checkNothing(List<Integer> input) {
+        if (!this.baseballNum.stream().anyMatch(integer -> input.contains(integer))) {
             return true;
         }
         return false;
     }
 
-    public int checkStrike(List<Integer> input){
+    public int checkStrike(List<Integer> input) {
         int check = 0;
-        for(int i=0; i<input.size();i++){
-            if(this.baseballNum.contains(input.get(i)) && this.baseballNum.indexOf(input.get(i)) == i){
+        for (int i = 0; i < input.size(); i++) {
+            if (this.baseballNum.contains(input.get(i)) && this.baseballNum.indexOf(input.get(i)) == i) {
                 check++;
             }
         }
         return check;
     }
 
-    public int checkBall(List<Integer> input){
+    public int checkBall(List<Integer> input) {
         int check = 0;
-        for(int i=0; i<input.size();i++){
-            if(this.baseballNum.contains(input.get(i)) && this.baseballNum.indexOf(input.get(i)) != i){
+        for (int i = 0; i < input.size(); i++) {
+            if (this.baseballNum.contains(input.get(i)) && this.baseballNum.indexOf(input.get(i)) != i) {
                 check++;
             }
         }

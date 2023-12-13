@@ -14,6 +14,6 @@ public enum ErrorPhrase {
     }
 
     public String getPhrase() {
-        return error+" "+this.phrase;
+        return error + " " + this.phrase;
     }
 }

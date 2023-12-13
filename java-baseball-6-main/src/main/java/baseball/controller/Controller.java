@@ -11,36 +11,37 @@ import java.util.stream.Collectors;
 public class Controller {
     Baseball baseball;
     User user;
+
     public Controller() {
         baseball = new Baseball();
         user = new User();
     }
 
     public void startProgram() {
-        boolean repeat=true;
+        boolean repeat = true;
         requestStart();
         requestRandomComputer();
-        while(repeat) {
+        while (repeat) {
             requestInputUser();
             requestInputCheck();
-            if(this.baseball.checkStrike(user.getLastInput())==this.baseball.getSize()){
+            if (this.baseball.checkStrike(user.getLastInput()) == this.baseball.getSize()) {
                 requestGameContent();
                 repeat = requestRestart();
             }
         }
     }
 
-    public void requestInit(){
+    public void requestInit() {
         this.baseball.initBaseballNum();
         this.user.initInputBaseball();
     }
 
-    public void requestRandomComputer(){
+    public void requestRandomComputer() {
         this.baseball.randomBaseballNum();
     }
 
-    public boolean requestRestart(){
-        if(InputView.readRestart()==1){
+    public boolean requestRestart() {
+        if (InputView.readRestart() == 1) {
             requestInit();
             requestRandomComputer();
             return true;
@@ -48,33 +49,33 @@ public class Controller {
         return false;
     }
 
-    public void requestGameContent(){
+    public void requestGameContent() {
         OutputView.printThreeStrike();
         OutputView.printGameResult(this.baseball.getBaseballNum(), this.user.getInputBaseball());
     }
 
-    public void requestInputCheck(){
+    public void requestInputCheck() {
         boolean nothing = this.baseball.checkNothing(user.getLastInput());
 
-        int strike=0;
-        if(!nothing){
+        int strike = 0;
+        if (!nothing) {
             strike = this.baseball.checkStrike(user.getLastInput());
         }
-        int ball=0;
-        if(!nothing && strike<checkMatchNum()){
+        int ball = 0;
+        if (!nothing && strike < checkMatchNum()) {
             ball = this.baseball.checkBall(user.getLastInput());
         }
-        OutputView.printCheckResult(nothing,ball,strike);
+        OutputView.printCheckResult(nothing, ball, strike);
     }
 
-    public int checkMatchNum(){
+    public int checkMatchNum() {
         return this.baseball.getBaseballNum().stream().
-                map(integer ->  Collections.frequency(user.getLastInput(),integer)).
+                map(integer -> Collections.frequency(user.getLastInput(), integer)).
                 collect(Collectors.toList()).stream().
                 mapToInt(Integer::intValue).sum();
     }
 
-    public void requestInputUser(){
+    public void requestInputUser() {
         while (true) {
             try {
                 user.addInputBaseball(InputView.readUserBaseball(this.baseball.getSize()));
@@ -86,12 +87,12 @@ public class Controller {
         user.addInputBaseball(InputView.readUserBaseball(this.baseball.getSize()));
     }
 
-    public void requestStart(){
+    public void requestStart() {
         OutputView.printStart();
         requestReadBaseballSize();
     }
 
-    public void requestReadBaseballSize(){
+    public void requestReadBaseballSize() {
         while (true) {
             try {
                 this.baseball.setSize(InputView.readBaseballSize(this.baseball.getMinSize()));

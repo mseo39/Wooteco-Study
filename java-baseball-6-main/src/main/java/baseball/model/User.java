@@ -6,11 +6,11 @@ import java.util.List;
 public class User {
     private List<List<Integer>> inputBaseball;
 
-    public User(){
+    public User() {
         this.inputBaseball = new ArrayList<>();
     }
 
-    public void addInputBaseball(List<Integer> input){
+    public void addInputBaseball(List<Integer> input) {
         this.inputBaseball.add(input);
     }
 
@@ -18,11 +18,11 @@ public class User {
         return inputBaseball;
     }
 
-    public List<Integer> getLastInput(){
-        return this.inputBaseball.get(this.inputBaseball.size()-1);
+    public List<Integer> getLastInput() {
+        return this.inputBaseball.get(this.inputBaseball.size() - 1);
     }
 
-    public void initInputBaseball(){
+    public void initInputBaseball() {
         this.inputBaseball.clear();
     }
 }

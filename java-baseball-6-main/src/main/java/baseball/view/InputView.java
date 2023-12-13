@@ -13,12 +13,12 @@ public class InputView {
         return Validator.baseballSize(Util.stringToInteger(readLine()), min);
     }
 
-    public static List<Integer> readUserBaseball(int size){
+    public static List<Integer> readUserBaseball(int size) {
         System.out.print(InputPhrase.BASEBALL_INPUT.getPhrase());
         return Validator.inputSize(Validator.inputDuplicate(readLine()), size);
     }
 
-    public static int readRestart(){
+    public static int readRestart() {
         System.out.println(InputPhrase.RESTART_CHOICE.getPhrase());
         return Validator.restartChoice(Util.stringToInteger(readLine()));
     }
