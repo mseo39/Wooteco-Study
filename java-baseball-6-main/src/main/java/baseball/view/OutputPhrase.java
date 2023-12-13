@@ -5,6 +5,7 @@ public enum OutputPhrase {
     BALL("볼"),
     STRIKE("스트라이크"),
     NOTHING("낫싱"),
+    THREE_STRIKE("3개의 숫자를 모두 맞히셨습니다! 게임 종료"),
     GAME_RESULT("게임 결과"),
     ANSWER("정답"),
     THROW_NUM("던진 횟수"),
