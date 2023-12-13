@@ -31,8 +31,8 @@ public class Car {
     }
 
     public void moveCar() {
-        if (Randoms.pickNumberInRange(0, 9) > CONDITION) {
-            this.distance = +1;
+        if (Randoms.pickNumberInRange(0, 9) >= CONDITION) {
+            this.distance +=1;
         }
     }
 }
