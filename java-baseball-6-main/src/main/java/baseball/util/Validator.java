@@ -21,6 +21,13 @@ public class Validator {
         return Stream.of(input.split("")).map(Integer::parseInt).collect(Collectors.toList());
     }
 
+    public static List<Integer> inputSize(List<Integer> input, int size){
+        if(input.size()!=size){
+            throw new IllegalArgumentException(String.format(ErrorPhrase.INPUT_SIZE.getPhrase(),size));
+        }
+        return input;
+    }
+
     public static int restartChoice(int input){
         if(input!=1 && input!=2){
             throw new IllegalArgumentException(ErrorPhrase.RESTART_CHOICE.getPhrase());
