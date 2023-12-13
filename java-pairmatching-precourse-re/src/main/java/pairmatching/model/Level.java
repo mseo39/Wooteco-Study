@@ -19,4 +19,12 @@ public enum Level {
         this.name = name;
         this.mission = mission;
     }
+
+    public static Level validateLevel(String level){
+        try{
+            return Level.valueOf(level);
+        }catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(ErrorPhrase.EXIST_LEVEL.getPhrase());
+        }
+    }
 }
