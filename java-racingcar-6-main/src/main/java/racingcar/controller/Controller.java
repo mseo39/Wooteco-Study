@@ -24,9 +24,7 @@ public class Controller {
     }
 
     public void requestCarName(){
-        for(String name : InputView.readCarName()){
-            game.addCar(new Car(name));
-        }
+        InputView.readCarName().forEach(s -> game.addCar(new Car(s)));
     }
 
     public void requestTryNum(){
