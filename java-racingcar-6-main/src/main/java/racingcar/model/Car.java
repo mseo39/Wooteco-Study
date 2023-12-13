@@ -10,7 +10,6 @@ public class Car {
     final private static int CONDITION = 4;
 
     public Car(String name) {
-        System.out.println(name);
         validate(name);
         this.name = name;
         this.distance = 0;
