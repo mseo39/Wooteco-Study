@@ -2,7 +2,7 @@ package lotto.view;
 
 public enum OutputPhrase {
     PURCHASE_NUM("당첨 통계"),
-    LOTTO_NUM("%s개를 구매했습니다."),
+    LOTTO_NUM("%d개를 구매했습니다."),
     REVENUE("총 수익률은 %.1f%%입니다."),
     UNIT("개");
 

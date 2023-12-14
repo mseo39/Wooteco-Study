@@ -1,8 +1,9 @@
-package template.controller;
+package lotto.controller;
 
 import lotto.model.Lottos;
 import lotto.util.Validator;
 import lotto.view.InputView;
+import lotto.view.OutputView;
 
 public class Controller {
     private Lottos lottos;
@@ -12,7 +13,9 @@ public class Controller {
     }
 
     public void startProgram() {
-
+        requestMoney();
+        requestGenerateLotto();
+        requestPrintLotto();
     }
 
     public void requestMoney(){
@@ -23,5 +26,10 @@ public class Controller {
         for(int i=0; i<lottos.getLottoNum(); i++){
             lottos.addLottos();
         }
+    }
+
+    public void requestPrintLotto(){
+        OutputView.printNum(lottos.getLottoNum());
+        OutputView.printLotto(lottos.getLottos());
     }
 }
