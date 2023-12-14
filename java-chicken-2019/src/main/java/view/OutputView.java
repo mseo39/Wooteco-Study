@@ -13,6 +13,7 @@ public class OutputView {
     private static final String ORDER_BOTTOM_LINE = "└ + ┘";
 
     public static void printTables(HashMap<String,Boolean> tables) {
+        System.out.println("");
         System.out.println(OutputPhrase.TABLE_LIST.getPhrase());
         final int size = tables.size();
         printTop(TOP_LINE, size);
@@ -21,6 +22,7 @@ public class OutputView {
     }
 
     public static void printMenus(final List<Menu> menus) {
+        System.out.println("");
         for (final Menu menu : menus) {
             System.out.println(menu);
         }
@@ -48,5 +50,10 @@ public class OutputView {
             System.out.printf(TABLE_FORMAT, key);
         }
         System.out.println();
+    }
+
+    public static void printFunctionList(){
+        System.out.println("");
+        System.out.println(OutputPhrase.MAIN_DISPLAY.getPhrase());
     }
 }

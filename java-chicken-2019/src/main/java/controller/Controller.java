@@ -1,9 +1,6 @@
 package controller;
 
-import domain.Orders;
-import domain.Pos;
-import domain.Table;
-import domain.TableRepository;
+import domain.*;
 import view.InputView;
 import view.OutputView;
 
@@ -21,12 +18,13 @@ public class Controller {
     }
 
     public boolean requestReadFunction(){
+        OutputView.printFunctionList();
         int input = InputView.readFunction();
         if(Pos.EXIT.getNum()==input){
             return false;
         }
         if(Pos.ORDER.getNum()==input){
-
+            requestOrder();
         }
         if(Pos.PAY.getNum()==input){
 
@@ -35,7 +33,16 @@ public class Controller {
     }
 
     public void requestOrder(){
+        orders.addOrders(new Order(requestReadTable(),requestReadMenu(),InputView.readNum()));
+    }
+
+    public Table requestReadTable(){
         OutputView.printTables(orders.TableByValidateOrder());
-        Table table = TableRepository.tables().get(InputView.readTableNumber()-1);
+        return TableRepository.getTable(InputView.readTableNumber());
+    }
+
+    public Menu requestReadMenu(){
+        OutputView.printMenus(MenuRepository.menus());
+        return MenuRepository.getMenu(InputView.readMenu());
     }
 }

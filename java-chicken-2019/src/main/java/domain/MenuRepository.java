@@ -1,5 +1,8 @@
 package domain;
 
+import view.ErrorPhrase;
+import view.InputView;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -20,5 +23,12 @@ public class MenuRepository {
 
     public static List<Menu> menus() {
         return Collections.unmodifiableList(menus);
+    }
+
+    public static Menu getMenu(int input) {
+        return MenuRepository.menus().stream()
+                .filter(menu -> menu.getNumber() == input)
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException(ErrorPhrase.EXIST_MENU.getPhrase()));
     }
 }

@@ -1,7 +1,6 @@
 package domain;
 
-import view.ErrorPhrase;
-
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -10,6 +9,10 @@ public class Orders {
 
     public List<Order> getOrders() {
         return orders;
+    }
+
+    public Orders(){
+        orders = new ArrayList<>();
     }
 
     public void addOrders(Order order){

@@ -8,7 +8,7 @@ public class Order {
     private int num;
     private Table table;
 
-    public Order(Menu menu, int num, Table table) {
+    public Order(Table table, Menu menu, int num) {
         validate(num);
         this.menu = menu;
         this.num = num;

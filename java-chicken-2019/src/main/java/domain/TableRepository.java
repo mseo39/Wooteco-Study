@@ -1,5 +1,8 @@
 package domain;
 
+import view.ErrorPhrase;
+import view.InputView;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -18,5 +21,12 @@ public class TableRepository {
 
     public static List<Table> tables() {
         return Collections.unmodifiableList(tables);
+    }
+
+    public static Table getTable(int input){
+        return TableRepository.tables().stream()
+                .filter(table -> table.getNumber()== input)
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException(ErrorPhrase.EXIST_MENU.getPhrase()));
     }
 }
