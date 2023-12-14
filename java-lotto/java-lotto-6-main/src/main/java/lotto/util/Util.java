@@ -18,4 +18,8 @@ public class Util {
             throw new IllegalArgumentException(ErrorPhrase.STRING_TO_INTEGER.getPhrase());
         }
     }
+
+    public static List<Integer> stringToIntegerList(String input){
+        return Stream.of(input.split("")).map(Integer::parseInt).collect(Collectors.toList());
+    }
 }
