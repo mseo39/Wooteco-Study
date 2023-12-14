@@ -4,13 +4,13 @@ import view.ErrorPhrase;
 
 public class Order {
     final static int MAX = 99;
-    private String name;
+    private Menu menu;
     private int num;
     private Table table;
 
-    public Order(String name, int num, Table table) {
+    public Order(Menu menu, int num, Table table) {
         validate(num);
-        this.name = name;
+        this.menu = menu;
         this.num = num;
         this.table = table;
     }
@@ -19,8 +19,8 @@ public class Order {
         return num;
     }
 
-    public String getName() {
-        return name;
+    public Menu getMenu() {
+        return menu;
     }
 
     public Table getTable() {
