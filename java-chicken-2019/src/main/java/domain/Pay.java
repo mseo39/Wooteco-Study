@@ -19,4 +19,10 @@ public enum Pay {
         return (orders.TableByChickenNum(table)/10) * DISCOUNT;
     }
 
+    public boolean discountCash(int input){
+        if(Pay.CASH.num==input){
+            return true;
+        }
+        return false;
+    }
 }
