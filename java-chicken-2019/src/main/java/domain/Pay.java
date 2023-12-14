@@ -15,6 +15,15 @@ public enum Pay {
         return num;
     }
 
+    public int totalMoney(Table table, Orders orders, int input){
+        int total = sumMoney(table,orders);
+        total-=discountChicken(table, orders);
+        if(discountCash(input)){
+            total-=(total*5/100);
+        }
+        return total;
+    }
+
     public int sumMoney(Table table, Orders orders){
         return orders.getTableByOrder(table).stream()
                 .mapToInt(order ->
