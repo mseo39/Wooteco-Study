@@ -4,11 +4,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public enum WinningCriteria {
-    FIRST("1등",6,0,2000000000),
-    TWO("2등",5,1,30000000),
-    THREE("3등",5,0,1500000),
-    FOUR("4등",4,0,50000),
-    FIVE("5등",3,0,5000);
+    FIRST("1등", 6, 0, 2000000000),
+    TWO("2등", 5, 1, 30000000),
+    THREE("3등", 5, 0, 1500000),
+    FOUR("4등", 4, 0, 50000),
+    FIVE("5등", 3, 0, 5000);
 
     private String name;
     private int match;
@@ -38,16 +38,24 @@ public enum WinningCriteria {
         return name;
     }
 
-    public List<WinningCriteria> getWinningCriteria(){
+    public List<WinningCriteria> getWinningCriteria() {
         return Arrays.stream(WinningCriteria.values()).toList();
     }
 
-    public void winningCriteriaToString(WinningCriteria winningCriteria){
-        System.out.print("  - "+winningCriteria.name+": "+
-                winningCriteria.match+"개 번호 ");
-        if (winningCriteria.bonus==1){
+    public void winningCriteriaToString(WinningCriteria winningCriteria) {
+        System.out.print("  - " + winningCriteria.name + ": " +
+                winningCriteria.match + "개 번호 ");
+        if (winningCriteria.bonus == 1) {
             System.out.print("+ 보너스 번호 ");
         }
-        System.out.println("일치 / "+String.format("%,d원",winningCriteria.money));
+        System.out.println("일치 / " + String.format("%,d원", winningCriteria.money));
+    }
+
+    public static WinningCriteria getMatch(int num, int bonus) {
+       return Arrays.stream(WinningCriteria.values())
+               .filter(
+                       winningCriteria -> winningCriteria.match==num
+                               && winningCriteria.bonus==bonus)
+               .findFirst().orElseThrow();
     }
 }
