@@ -15,6 +15,13 @@ public enum Pay {
         return num;
     }
 
+    public int sumMoney(Table table, Orders orders){
+        return orders.getTableByOrder(table).stream()
+                .mapToInt(order ->
+                        order.getMenu().getPrice()*order.getNum())
+                .sum();
+    }
+
     public int discountChicken(Table table, Orders orders){
         return (orders.TableByChickenNum(table)/10) * DISCOUNT;
     }
