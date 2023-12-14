@@ -3,6 +3,7 @@ package controller;
 import domain.Orders;
 import domain.Pos;
 import view.InputView;
+import view.OutputView;
 
 public class Controller {
     private Orders orders;
@@ -29,5 +30,9 @@ public class Controller {
 
         }
         return true;
+    }
+
+    public void requestOrder(){
+        OutputView.printTables(orders.TableByValidateOrder());
     }
 }
