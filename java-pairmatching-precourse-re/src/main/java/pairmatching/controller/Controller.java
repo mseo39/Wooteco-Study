@@ -28,14 +28,14 @@ public class Controller {
     }
 
     public boolean requestFunction(String input){
-        if(input.equals(1)) {
+        if(input.equals("1")) {
             requestMatching();
             return true;
         }
-        if(input.equals(2)) {
+        if(input.equals("2")) {
             return true;
         }
-        if(input.equals(3)) {
+        if(input.equals("3")) {
             return true;
         }
         return false;
@@ -67,6 +67,23 @@ public class Controller {
     }
 
     public void requestMatching(){
-        this.pairMatching.addMatchings(requestReadMatchingType());
+        Matching matching=requestReadMatchingType();
+        try {
+            this.pairMatching.addMatchings(matching, requestGetCrew(matching));
+            requestPrintMatching(matching);
+        }catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public Crew requestGetCrew(Matching matching){
+        if (matching.getCourse().getName().equals(backendCrew.getNames())) {
+            return backendCrew;
+        }
+        return frontendCrew;
+    }
+
+    public void requestPrintMatching(Matching matching){
+        OutputView.printMatching(matching);
     }
 }

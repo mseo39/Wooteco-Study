@@ -2,6 +2,9 @@ package pairmatching.model;
 
 import pairmatching.view.ErrorPhrase;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 public enum Course {
     BACKEND("백엔드"),
     FRONTEND("프론트엔드");
@@ -17,10 +20,11 @@ public enum Course {
     }
 
     public static Course validateCourse(String name) {
-        try {
-            return Course.valueOf(name);
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException(ErrorPhrase.EXIST_COURSE.getPhrase());
+        if(Arrays.stream(Course.values()).map(Course::getName).toList().contains(name)){
+            return Arrays.stream(Course.values())
+                    .filter(course -> course.getName().equals(name))
+                    .findFirst()
+                    .orElseThrow(() -> new IllegalArgumentException(ErrorPhrase.EXIST_COURSE.getPhrase());
         }
     }
 }

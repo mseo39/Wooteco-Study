@@ -17,4 +17,9 @@ public class InputView {
         System.out.println(InputPhrase.CHOICE_MATCHING.getPhrase());
         return Arrays.stream(readLine().split(",")).map(String::strip).toList();
     }
+
+    public static String readReMatching(){
+        System.out.println(InputPhrase.CHOICE_REMATCHING);
+        return readLine();
+    }
 }

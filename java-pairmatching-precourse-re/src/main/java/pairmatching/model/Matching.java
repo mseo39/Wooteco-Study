@@ -15,4 +15,16 @@ public class Matching {
         this.mission = Level.validateMission(this.level, mission);
         this.names = new ArrayList<>();
     }
+
+    public List<List<String>> getNames() {
+        return names;
+    }
+
+    public Level getLevel() {
+        return level;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
 }
