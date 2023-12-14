@@ -16,4 +16,9 @@ public class InputView {
         System.out.println(InputPhrase.WINNING_NUMBER.getPhrase());
         return Util.stringToIntegerList(readLine());
     }
+
+    public static int readBonus(){
+        System.out.println(InputPhrase.BONUS.getPhrase());
+        return Util.stringToInteger(readLine());
+    }
 }
