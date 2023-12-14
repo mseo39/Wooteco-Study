@@ -1,10 +1,10 @@
-package template.view;
+package lotto.view;
 
 public enum OutputPhrase {
-    RESULT_MATCHING("페어 매칭 결과입니다."),
-    LEVEL_SEPARATOR("- "),
-    INFORMATION_SEPARATOR(" | "),
-    CONTOUR("#");
+    PURCHASE_NUM("당첨 통계"),
+    LOTTO_NUM("%s개를 구매했습니다."),
+    REVENUE("총 수익률은 %.1f%%입니다."),
+    UNIT("개");
 
     private String phrase;
 
