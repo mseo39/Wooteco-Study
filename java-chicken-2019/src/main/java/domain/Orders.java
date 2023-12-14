@@ -2,6 +2,7 @@ package domain;
 
 import view.ErrorPhrase;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class Orders {
@@ -27,9 +28,14 @@ public class Orders {
                 .mapToInt(Order::getNum).sum();
     }
 
-    public void ValidateOrder(Table table){
+    public boolean ValidateOrder(Table table){
         if(getTableByOrder(table).size()==0){
-            throw new IllegalArgumentException(ErrorPhrase.EXIST_ORDER.getPhrase());
+            return false;
         }
+        return true;
+    }
+
+    public void deleteOrder(Table table){
+        this.orders.removeAll(getTableByOrder(table));
     }
 }
