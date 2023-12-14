@@ -12,4 +12,8 @@ public class Orders {
     public void addOrders(Order order){
         this.orders.add(order);
     }
+
+    public List<Order> getTableByOrder(Table table){
+        return this.orders.stream().filter(order -> order.getTable().equals(table)).toList();
+    }
 }
