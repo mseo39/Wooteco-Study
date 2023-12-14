@@ -1,5 +1,8 @@
 package lotto.model;
 
+import lotto.util.Util;
+import lotto.util.Validator;
+
 import java.util.List;
 
 public class Lotto {
@@ -7,6 +10,7 @@ public class Lotto {
 
     public Lotto(List<Integer> numbers) {
         validate(numbers);
+        duplicateValidate(numbers);
         this.numbers = numbers;
     }
 
@@ -14,6 +18,10 @@ public class Lotto {
         if (numbers.size() != 6) {
             throw new IllegalArgumentException();
         }
+    }
+
+    private void duplicateValidate(List<Integer> numbers){
+        Validator.duplicateNumber(numbers);
     }
 
     // TODO: 추가 기능 구현

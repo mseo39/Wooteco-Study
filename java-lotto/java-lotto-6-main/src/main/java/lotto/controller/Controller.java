@@ -2,9 +2,12 @@ package lotto.controller;
 
 import lotto.model.Lottos;
 import lotto.model.Winning;
+import lotto.model.WinningCriteria;
 import lotto.util.Validator;
 import lotto.view.InputView;
 import lotto.view.OutputView;
+
+import java.util.List;
 
 public class Controller {
     private Lottos lottos;
@@ -19,10 +22,18 @@ public class Controller {
         requestGenerateLotto();
         requestPrintLotto();
         requestReadWinning();
+        requestPrintResult();
     }
 
     public void requestMoney(){
-        lottos = new Lottos(InputView.readMoney()/1000);
+        while (true) {
+            try {
+                lottos = new Lottos(InputView.readMoney()/1000);
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
     public void requestGenerateLotto(){
@@ -37,6 +48,21 @@ public class Controller {
     }
 
     public void requestReadWinning(){
-        winning = new Winning(InputView.readWinningNum(), InputView.readBonus());
+        while (true) {
+            try {
+                winning = new Winning(InputView.readWinningNum(), InputView.readBonus());
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    public void requestPrintResult(){
+        List<WinningCriteria> winningCriteria = winning.matchResult(lottos);
+        OutputView.printWinningResult(winningCriteria);
+        OutputView.printRevenue(
+                winning.getRevenue(winningCriteria,lottos.getLottoNum()*1000)
+        );
     }
 }

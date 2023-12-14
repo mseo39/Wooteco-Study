@@ -3,15 +3,17 @@ package lotto.model;
 import camp.nextstep.edu.missionutils.Randoms;
 import lotto.util.Validator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Lottos {
     private final static int LOTTO_RANGE_MIN = 1;
-    private final static int LOTTO_RANGE_MAX = 2;
+    private final static int LOTTO_RANGE_MAX = 45;
     private List<Lotto> lottos;
     private int lottoNum;
 
     public Lottos(int lottoNum) {
+        this.lottos = new ArrayList<>();
         this.lottoNum = lottoNum;
     }
 

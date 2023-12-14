@@ -1,5 +1,7 @@
 package lotto.model;
 
+import lotto.view.OutputPhrase;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -27,7 +29,7 @@ public class Winning {
     }
 
     public double getRevenue(List<WinningCriteria> winningCriteria, int money){
-        return winningCriteria.stream().mapToInt(value -> value.getMoney()).sum()/money;
+        return ((double) winningCriteria.stream().mapToInt(value -> value.getMoney()).sum()/(double)money*100);
     }
 
     public int matchNum(List<Integer> number){

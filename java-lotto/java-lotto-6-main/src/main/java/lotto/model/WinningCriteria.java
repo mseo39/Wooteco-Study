@@ -1,6 +1,8 @@
 package lotto.model;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public enum WinningCriteria {
@@ -38,17 +40,23 @@ public enum WinningCriteria {
         return name;
     }
 
-    public List<WinningCriteria> getWinningCriteria() {
+    public static List<WinningCriteria> getWinningCriteria() {
         return Arrays.stream(WinningCriteria.values()).toList();
     }
 
-    public void winningCriteriaToString(WinningCriteria winningCriteria) {
-        System.out.print("  - " + winningCriteria.name + ": " +
-                winningCriteria.match + "개 번호 ");
-        if (winningCriteria.bonus == 1) {
-            System.out.print("+ 보너스 번호 ");
+    public static List<WinningCriteria> getReverse(){
+        List<WinningCriteria> reversedWinningCriterias = new ArrayList<>(WinningCriteria.getWinningCriteria());
+        Collections.reverse(reversedWinningCriterias);
+        return reversedWinningCriterias;
+    }
+
+    public void winningCriteriaToString() {
+        System.out.print(
+                match + "개 일치");
+        if (bonus == 1) {
+            System.out.print(", 보너스 볼 일치");
         }
-        System.out.println("일치 / " + String.format("%,d원", winningCriteria.money));
+        System.out.print(String.format(" (%,d원)", money));
     }
 
     public static WinningCriteria getMatch(int num, int bonus) {
