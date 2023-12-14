@@ -18,4 +18,10 @@ public class Controller {
     public void requestMoney(){
         lottos = new Lottos(InputView.readMoney()/1000);
     }
+
+    public void requestGenerateLotto(){
+        for(int i=0; i<lottos.getLottoNum(); i++){
+            lottos.addLottos();
+        }
+    }
 }
