@@ -2,6 +2,8 @@ package controller;
 
 import domain.Orders;
 import domain.Pos;
+import domain.Table;
+import domain.TableRepository;
 import view.InputView;
 import view.OutputView;
 
@@ -34,5 +36,6 @@ public class Controller {
 
     public void requestOrder(){
         OutputView.printTables(orders.TableByValidateOrder());
+        Table table = TableRepository.tables().get(InputView.readTableNumber()-1);
     }
 }
