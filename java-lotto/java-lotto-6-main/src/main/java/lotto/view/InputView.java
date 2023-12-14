@@ -1,4 +1,4 @@
-package template.view;
+package lotto.view;
 
 import template.util.Validator;
 
