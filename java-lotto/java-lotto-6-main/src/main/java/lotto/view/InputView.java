@@ -1,12 +1,14 @@
 package lotto.view;
 
-import template.util.Validator;
+import lotto.util.Util;
+
+import java.util.List;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class InputView {
-    public static String readChoice() {
-        System.out.println(InputPhrase.INPUT_CHOICE.getPhrase());
-        return Validator.choiceValidate(readLine());
+    public static int readMoney() {
+        System.out.println(InputPhrase.MONEY.getPhrase());
+        return Util.stringToInteger(readLine());
     }
 }
