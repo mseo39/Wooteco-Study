@@ -10,7 +10,7 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 public class InputView {
     public static int readMoney() {
         System.out.println(InputPhrase.MONEY.getPhrase());
-        return Util.stringToInteger(readLine());
+        return Validator.moneyValidate(Util.stringToInteger(readLine()));
     }
 
     public static List<Integer> readWinningNum(){
