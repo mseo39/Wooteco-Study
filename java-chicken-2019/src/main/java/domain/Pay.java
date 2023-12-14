@@ -13,4 +13,8 @@ public enum Pay {
     public int getNum() {
         return num;
     }
+
+    public int totalMoney(){
+
+    }
 }
