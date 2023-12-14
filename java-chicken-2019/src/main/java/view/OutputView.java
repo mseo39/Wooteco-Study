@@ -1,6 +1,8 @@
 package view;
 
 import domain.Menu;
+import domain.Order;
+import domain.Table;
 
 import java.util.HashMap;
 import java.util.List;
@@ -11,6 +13,19 @@ public class OutputView {
     private static final String TABLE_FORMAT = "| %s |";
     private static final String BOTTOM_LINE = "└ ─ ┘";
     private static final String ORDER_BOTTOM_LINE = "└ + ┘";
+
+    public static void printOrderMenu(List<Order> orders){
+        System.out.println("");
+        System.out.println(OutputPhrase.ORDER_LIST.getPhrase());
+        System.out.println("메뉴 수량 금액");
+        for(Order order : orders){
+            System.out.println(order.getMenu().getName() +" "+ order.getNum() +" "+ order.getMenu().getPrice());
+        }
+    }
+
+    public static void printTableNumber(Table table){
+        System.out.println(String.format(OutputPhrase.CONTOUR.getPhrase(),table.toString()));
+    }
 
     public static void printTables(HashMap<String,Boolean> tables) {
         System.out.println("");
@@ -55,5 +70,11 @@ public class OutputView {
     public static void printFunctionList(){
         System.out.println("");
         System.out.println(OutputPhrase.MAIN_DISPLAY.getPhrase());
+    }
+
+    public static void printTotalMoney(int money){
+        System.out.println("");
+        System.out.println(OutputPhrase.TOTAL_MONEY.getPhrase());
+        System.out.println(money+"원");
     }
 }

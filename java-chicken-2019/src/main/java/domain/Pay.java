@@ -15,7 +15,7 @@ public enum Pay {
         return num;
     }
 
-    public int totalMoney(Table table, Orders orders, int input){
+    public static int totalMoney(Table table, Orders orders, int input){
         int total = sumMoney(table,orders);
         total-=discountChicken(table, orders);
         if(discountCash(input)){
@@ -24,18 +24,18 @@ public enum Pay {
         return total;
     }
 
-    public int sumMoney(Table table, Orders orders){
+    public static int sumMoney(Table table, Orders orders){
         return orders.getTableByOrder(table).stream()
                 .mapToInt(order ->
                         order.getMenu().getPrice()*order.getNum())
                 .sum();
     }
 
-    public int discountChicken(Table table, Orders orders){
+    public static int discountChicken(Table table, Orders orders){
         return (orders.TableByChickenNum(table)/10) * DISCOUNT;
     }
 
-    public boolean discountCash(int input){
+    public static boolean discountCash(int input){
         if(Pay.CASH.num==input){
             return true;
         }

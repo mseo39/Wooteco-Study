@@ -27,9 +27,17 @@ public class Controller {
             requestOrder();
         }
         if(Pos.PAY.getNum()==input){
-
+            requestPay();
         }
         return true;
+    }
+
+    public void requestPay(){
+        Table table = requestReadTable();
+        OutputView.printOrderMenu(orders.getTableByOrder(table));
+        OutputView.printTableNumber(table);
+        OutputView.printTotalMoney(Pay.totalMoney(table, orders,InputView.readPay()));
+        orders.deleteOrder(table);
     }
 
     public void requestOrder(){
