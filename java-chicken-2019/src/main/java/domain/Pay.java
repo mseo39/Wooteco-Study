@@ -5,6 +5,7 @@ public enum Pay {
     CASH(2);
 
     private int num;
+    private final static int DISCOUNT=10000;
 
     Pay(int num) {
         this.num = num;
@@ -14,7 +15,8 @@ public enum Pay {
         return num;
     }
 
-    public int totalMoney(){
-
+    public int discountChicken(Table table, Orders orders){
+        return (orders.TableByChickenNum(table)/10) * DISCOUNT;
     }
+
 }
