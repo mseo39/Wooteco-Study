@@ -14,6 +14,7 @@ public class InputView {
     }
 
     public static List<Integer> readWinningNum(){
+        System.out.println("");
         System.out.println(InputPhrase.WINNING_NUMBER.getPhrase());
         List<Integer> result = Util.stringToIntegerList(readLine());
         result.forEach(integer -> Validator.NumValidate(integer));
@@ -21,8 +22,10 @@ public class InputView {
     }
 
     public static int readBonus(){
+        System.out.println("");
         System.out.println(InputPhrase.BONUS.getPhrase());
         int result = Util.stringToInteger(readLine());
+        Validator.NumValidate(result);
         return result;
     }
 }

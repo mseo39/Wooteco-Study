@@ -1,12 +1,14 @@
 package lotto.controller;
 
 import lotto.model.Lottos;
+import lotto.model.Winning;
 import lotto.util.Validator;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
 public class Controller {
     private Lottos lottos;
+    private Winning winning;
 
     public Controller() {
 
@@ -16,6 +18,7 @@ public class Controller {
         requestMoney();
         requestGenerateLotto();
         requestPrintLotto();
+        requestReadWinning();
     }
 
     public void requestMoney(){
@@ -31,5 +34,9 @@ public class Controller {
     public void requestPrintLotto(){
         OutputView.printNum(lottos.getLottoNum());
         OutputView.printLotto(lottos.getLottos());
+    }
+
+    public void requestReadWinning(){
+        winning = new Winning(InputView.readWinningNum(), InputView.readBonus());
     }
 }
