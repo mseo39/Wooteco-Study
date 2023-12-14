@@ -1,16 +1,16 @@
-package template.util;
+package lotto.util;
 
-import template.view.ErrorPhrase;
-
-import java.util.Arrays;
-import java.util.List;
+import lotto.view.ErrorPhrase;
 
 public class Validator {
-    static List<String> choice= Arrays.asList("1", "2", "3", "Q");
-    public static String choiceValidate(String userChoice){
-        if(!choice.contains(userChoice)){
-            throw new IllegalArgumentException("");
+
+    private final static int LOTTO_RANGE_MIN = 1;
+    private final static int LOTTO_RANGE_MAX = 2;
+
+    public static int NumValidate(int input){
+        if(input<LOTTO_RANGE_MIN || input>LOTTO_RANGE_MAX){
+            throw new IllegalArgumentException(ErrorPhrase.LOTTO_NUM_RANGE.getPhrase());
         }
-        return userChoice;
+        return input;
     }
 }

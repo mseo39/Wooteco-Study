@@ -1,6 +1,7 @@
 package lotto.view;
 
 import lotto.util.Util;
+import lotto.util.Validator;
 
 import java.util.List;
 
@@ -14,11 +15,14 @@ public class InputView {
 
     public static List<Integer> readWinningNum(){
         System.out.println(InputPhrase.WINNING_NUMBER.getPhrase());
-        return Util.stringToIntegerList(readLine());
+        List<Integer> result = Util.stringToIntegerList(readLine());
+        result.forEach(integer -> Validator.NumValidate(integer));
+        return result;
     }
 
     public static int readBonus(){
         System.out.println(InputPhrase.BONUS.getPhrase());
-        return Util.stringToInteger(readLine());
+        int result = Util.stringToInteger(readLine());
+        return result;
     }
 }
