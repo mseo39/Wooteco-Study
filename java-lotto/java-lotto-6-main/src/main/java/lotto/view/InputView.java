@@ -11,4 +11,9 @@ public class InputView {
         System.out.println(InputPhrase.MONEY.getPhrase());
         return Util.stringToInteger(readLine());
     }
+
+    public static List<Integer> readWinningNum(){
+        System.out.println(InputPhrase.WINNING_NUMBER.getPhrase());
+        return Util.stringToIntegerList(readLine());
+    }
 }
