@@ -1,21 +1,23 @@
 package view;
 
 import domain.Menu;
-import domain.Table;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class OutputView {
     private static final String TOP_LINE = "┌ ─ ┐";
     private static final String TABLE_FORMAT = "| %s |";
     private static final String BOTTOM_LINE = "└ ─ ┘";
+    private static final String ORDER_BOTTOM_LINE = "└ + ┘";
 
-    public static void printTables(final List<Table> tables) {
-        System.out.println("## 테이블 목록");
+    public static void printTables(HashMap<String,Boolean> tables) {
+        System.out.println(OutputPhrase.TABLE_LIST.getPhrase());
         final int size = tables.size();
-        printLine(TOP_LINE, size);
+        printTop(TOP_LINE, size);
         printTableNumbers(tables);
-        printLine(BOTTOM_LINE, size);
+        printBottom(tables);
     }
 
     public static void printMenus(final List<Menu> menus) {
@@ -24,16 +26,26 @@ public class OutputView {
         }
     }
 
-    private static void printLine(final String line, final int count) {
+    private static void printTop(final String line, final int count) {
         for (int index = 0; index < count; index++) {
             System.out.print(line);
         }
         System.out.println();
     }
 
-    private static void printTableNumbers(final List<Table> tables) {
-        for (final Table table : tables) {
-            System.out.printf(TABLE_FORMAT, table);
+    private static void printBottom(HashMap<String,Boolean> tables){
+        for(Map.Entry<String, Boolean> elem : tables.entrySet()){
+            if(elem.getValue().equals(true)){
+                System.out.print(ORDER_BOTTOM_LINE);
+                continue;
+            }
+            System.out.print(BOTTOM_LINE);
+        }
+    }
+
+    private static void printTableNumbers(HashMap<String,Boolean> tables) {
+        for(String key : tables.keySet()){
+            System.out.printf(TABLE_FORMAT, key);
         }
         System.out.println();
     }
