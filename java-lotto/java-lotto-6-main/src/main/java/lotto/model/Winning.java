@@ -26,6 +26,10 @@ public class Winning {
         return result;
     }
 
+    public double getRevenue(List<WinningCriteria> winningCriteria, int money){
+        return winningCriteria.stream().mapToInt(value -> value.getMoney()).sum()/money;
+    }
+
     public int matchNum(List<Integer> number){
         return number.stream().mapToInt(value -> Collections.frequency(winningNumber,value)).sum();
     }
