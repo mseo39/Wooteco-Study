@@ -38,4 +38,12 @@ public class Orders {
     public void deleteOrder(Table table){
         this.orders.removeAll(getTableByOrder(table));
     }
+
+    public HashMap<String, Boolean> TableByValidateOrder(){
+        HashMap<String,Boolean> result = new HashMap<>();
+        for(Table table: TableRepository.tables()){
+            result.put(table.toString(),ValidateOrder(table));
+        }
+        return result;
+    }
 }
