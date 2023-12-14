@@ -1,7 +1,7 @@
 package view;
 
 public enum OutputPhrase {
-    MAIN_DISPLAY("메인화면"),
+    MAIN_DISPLAY("메인화면\n1 - 주문등록\n2 - 결제하기\n3 - 프로그램 종료"),
     TABLE_LIST("테이블 목록"),
     ORDER_LIST("주문 내역"),
     CONTOUR("%s번 테이블의 결제를 진행합니다."),
